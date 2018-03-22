@@ -1,1 +1,20 @@
 
+import string
+import random
+
+#Dishes_string = input('What would you like? ') 
+Dishes_string = ('Eggs, spam, eggs, spam, tomato juice, spam')
+
+
+List = list(range(6))
+
+for i in range(6):
+    List[i] = Dishes_string.title().split(",")[i].strip()
+    #print(List[i])
+
+List = list(set(List))
+#print(List)
+
+for i in range(len(List)):
+    random_integer = random.randint(0, 1000)
+    print('{:.<15}{:.>20} {}'.format(List[i],random_integer,"min"))
