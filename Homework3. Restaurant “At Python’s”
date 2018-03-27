@@ -1,8 +1,8 @@
 import string
 import random
 
-#dishes_string = input('What would you like? ') 
-dishes_string = 'Eggs, spam, eggs,     spam, tomato juice, spam'
+dishes_string = input('What would you like? ') 
+#dishes_string = 'Eggs, spam, eggs, , ,,, ,,,,               ,    spam, tomato juice, spam'
 
 prepared_dishes = {dish.strip():random.randint(0,100) for dish in dishes_string.title().split(',') if dish.strip() !='' }
 
