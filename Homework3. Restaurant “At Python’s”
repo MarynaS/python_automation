@@ -2,15 +2,12 @@ import string
 import random
 
 #Dishes_string = input('What would you like? ') 
-Dishes_string = 'Eggs, spam, eggs, spam, tomato juice, spam'
+dishes_string = 'Eggs, spam, eggs,     spam, tomato juice, spam'
 
-dish_list = (Dishes_string.title().split(', '))
-uniq_dish = []
-for i in range(len(dish_list)):
-    dish_list[i] = dish_list[i].strip()
-    if dish_list[i] not in uniq_dish:
-        uniq_dish.append(dish_list[i]) 
+dish_list = []
 
-for i in range(len(uniq_dish)):
-    random_integer = random.randint(0, 1000)
-    print('{:.<15}{:.>20} {}'.format(uniq_dish[i],random_integer,"min"))
+prepared_dishes = {dish.strip():random.randint(0,100) for dish in dishes_string.title().split(',')}
+
+for item in prepared_dishes.keys():
+    print ("{:.<15}{:.>20} min"
+           .format(item,prepared_dishes[item]))
