@@ -1,13 +1,16 @@
 import random
 
-dishes_string = ('Eggs, Cake, Cake, Spam, Spam   ,,, New')
-dish_list = []
+dishes_string = ('eggs, Cake, cake, Spam, Spam   ,,, New, new, cookie ')
+
+new_list = set(list([item.strip() for item in dishes_string.title().split(',') if item.strip() !=""]))
+#print(new_list)
 
 class MyDish():
     '''Dish you ordered in the restaurant'''
 
-    def __init__(self):
-        self.name = list(set([item.strip() for item in dishes_string.title().split(',') if item.strip() !=""]))
+    def __init__(self, dish_names):
+            self.name = list(dish_names)
+            #print(self.name)
  
     def call_time(self,random_a,random_b):
         '''Randomizer of a time'''
@@ -20,8 +23,9 @@ class MyDish():
             print ("{:.<15}{:.>20} min"
            .format(dish,self.call_time(0,100)))
 
-new_dish = MyDish()
+new_dish = MyDish(new_list)
 new_dish.print_dish()
+
 
 # OUTPUT
 #Spam.............................93 min
