@@ -1,6 +1,7 @@
+
 import random
 
-dishes_string = ('eggs, Cake, cake, Spam, Spam   ,,, New, new, cookie ')
+dishes_string = ('eggs, Cake, cake, Spam, Spam   ,,, Butter, New, new, cookie ')
 
 new_list =[]
 dish_set = []
@@ -25,10 +26,10 @@ class MyDish():
 for el in dishes_string.title().split(','):
     if el.strip() != "":
         new_list.append(el.strip())
-        dish_set = list(set(new_list))
-        
-for i in range(len(dish_set)):
-    time_for_dish = MyDish(dish_set[i])
+        dish_ordered = list(set(new_list))
+
+for dish in dish_ordered:
+    time_for_dish = MyDish(dish)
     time_for_dish.print_dish()
 
 
