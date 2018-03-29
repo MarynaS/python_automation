@@ -9,9 +9,7 @@ class MyDish():
     '''Dish you ordered in the restaurant'''
 
     def __init__(self, dish_name):
-            self.name = []
             self.name = dish_name
-            #print(self.name)
  
     def call_time(self,random_a,random_b):
         '''Randomizer of a time'''
@@ -20,7 +18,6 @@ class MyDish():
 
     def print_dish(self):
         '''Print what you ordered and time'''
-        #for dish in self.name:
         print ("{:.<15}{:.>20} min"
         .format(self.name,self.call_time(0,100)))
 
