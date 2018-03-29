@@ -8,11 +8,13 @@ def random_time(a,b):
     rand_time = random.randint(a,b)
     return rand_time
     
-prepared_dishes = {dish.strip():random_time(0,100) for dish in dishes_string.title().split(',') if dish.strip() !='' }
+def print_dish(dish_name):
+    return dish_name.ljust(15,'.')
 
-for item in prepared_dishes.keys():
-    print ("{:.<15}{:.>20} min"
-           .format(item,prepared_dishes[item]))
+prepared_dishes_list = [dish.strip() for dish in dishes_string.title().split(',') if dish.strip() !=""]
+
+for item in prepared_dishes_list:
+    print (print_dish(item),random_time(0,100), "min")
            
 # OUTPUT
 # Eggs.............................76 min
