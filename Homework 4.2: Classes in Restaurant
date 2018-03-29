@@ -2,14 +2,15 @@ import random
 
 dishes_string = ('eggs, Cake, cake, Spam, Spam   ,,, New, new, cookie ')
 
-new_list = set(list([item.strip() for item in dishes_string.title().split(',') if item.strip() !=""]))
-#print(new_list)
+new_list =[]
+dish_set = []
 
 class MyDish():
     '''Dish you ordered in the restaurant'''
 
-    def __init__(self, dish_names):
-            self.name = list(dish_names)
+    def __init__(self, dish_name):
+            self.name = []
+            self.name = dish_name
             #print(self.name)
  
     def call_time(self,random_a,random_b):
@@ -19,12 +20,19 @@ class MyDish():
 
     def print_dish(self):
         '''Print what you ordered and time'''
-        for dish in self.name:
-            print ("{:.<15}{:.>20} min"
-           .format(dish,self.call_time(0,100)))
+        #for dish in self.name:
+        print ("{:.<15}{:.>20} min"
+        .format(self.name,self.call_time(0,100)))
 
-new_dish = MyDish(new_list)
-new_dish.print_dish()
+
+for el in dishes_string.title().split(','):
+    if el.strip() != "":
+        new_list.append(el.strip())
+        dish_set = list(set(new_list))
+        
+for i in range(len(dish_set)):
+    time_for_dish = MyDish(dish_set[i])
+    time_for_dish.print_dish()
 
 
 # OUTPUT
